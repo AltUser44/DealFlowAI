@@ -1,6 +1,9 @@
 # DealFlow AI
 
-> M&A intelligence platform — ingest public fundamentals, score acquisition targets with a transparent heuristic, and generate institutional-style acquisition theses powered by Claude AI.
+M&A intelligence platform — ingest public fundamentals, score acquisition targets with a transparent heuristic, and generate institutional-style acquisition theses powered by Claude AI.
+
+<img width="1902" height="922" alt="Screenshot 5 2026-04-02 194854" src="https://github.com/user-attachments/assets/4c51340e-8bd9-4e53-8ce2-c9ad7a5eaf65" />
+
 
 ---
 
