@@ -14,7 +14,12 @@ const credentialsBody = z.object({
 /** POST /api/auth/register */
 router.post("/register", async (req, res, next) => {
   try {
-    const { email, password } = credentialsBody.parse(req.body);
+    const parsed = credentialsBody.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ error: "Validation failed", details: parsed.error.flatten() });
+      return;
+    }
+    const { email, password } = parsed.data;
 
     const existing = await User.findOne({ email });
     if (existing) {
@@ -35,7 +40,12 @@ router.post("/register", async (req, res, next) => {
 /** POST /api/auth/login */
 router.post("/login", async (req, res, next) => {
   try {
-    const { email, password } = credentialsBody.parse(req.body);
+    const parsed = credentialsBody.safeParse(req.body);
+    if (!parsed.success) {
+      res.status(400).json({ error: "Validation failed", details: parsed.error.flatten() });
+      return;
+    }
+    const { email, password } = parsed.data;
 
     const user = await User.findOne({ email });
     if (!user) {
